@@ -21,7 +21,7 @@ class loadingScene extends Phaser.Scene{
 		msg3 = this.add.image(config.width/4, config.height/4, "test-msg3");
 		hamster = this.physics.add.image(400, 300, 'hamster').setVelocity(0, 0);
 		
-		this.physics.arcade.enable([msg1, msg2, msg3]);
+		this.physics.enable([msg1, msg2, msg3]);
 		
 		msg1.body.setCircle(45);
 		msg2.body.setCircle(45);
@@ -59,12 +59,12 @@ class loadingScene extends Phaser.Scene{
 		velocityFromRotation(hamster.rotation, SPEED, hamster.body.velocity);
 		hamster.body.debugBodyColor = (hamster.body.angularVelocity === 0) ? 0xff0000 : 0xffff00;
 		
-		 this.physics.arcade.collide(msg1, msg2);
-		this.physics.arcade.collide(msg1, msg3);
-		this.physics.arcade.collide(msg2, msg3);
-		this.physics.arcade.collide(hamster, msg1);
-		this.physics.arcade.collide(hamster, msg2);
-		this.physics.arcade.collide(hamster, msg3);
+		 this.physics.collide(msg1, msg2);
+		this.physics.collide(msg1, msg3);
+		this.physics.collide(msg2, msg3);
+		this.physics.collide(hamster, msg1);
+		this.physics.collide(hamster, msg2);
+		this.physics.collide(hamster, msg3);
 	}
 	
 	getPointerLocX(){
