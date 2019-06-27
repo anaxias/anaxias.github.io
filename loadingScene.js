@@ -31,7 +31,7 @@ class loadingScene extends Phaser.Scene{
 	
 	moveMsg(){
 		
-		console.log("test");
+		console.log("x:"+this.getPointerLocX()+" y:"+this.getPointerLocY());
 	}
 	
 	update(){
