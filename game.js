@@ -14,8 +14,8 @@
 	
 	var game = new Phaser.Game(config);
 
-var SPEED = 100;
-var ROTATION_SPEED = 2 * Math.PI / 4; // 90 deg/s
+var SPEED = 150;
+var ROTATION_SPEED = 2 * Math.PI;
 var ROTATION_SPEED_DEGREES = Phaser.Math.RadToDeg(ROTATION_SPEED);
 var TOLERANCE = 0.01 * ROTATION_SPEED;
 

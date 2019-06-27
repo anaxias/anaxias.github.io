@@ -25,7 +25,7 @@ class loadingScene extends Phaser.Scene{
 	create(){
 		
 		this.msg1 = this.add.image(config.width/2, config.height/2, "test-msg");
-		this.hamster = this.physics.add.image(400, 300, 'hamster').setVelocity(SPEED, 0);
+		this.hamster = this.physics.add.image(this.getPointerLocX, this.getPointerLocY, 'hamster').setVelocity(SPEED, 0);
 		
 	}
 	
@@ -38,7 +38,19 @@ class loadingScene extends Phaser.Scene{
 		this.moveMsg();
 		this.pointerMove(this.input.activePointer);
 		velocityFromRotation(this.hamster.rotation, SPEED, this.hamster.body.velocity);
-		this.hamster.body.debugBodyColor = (this.hamster.body.angularVelocity === 0) ? 0xff0000 : 0xffff00;
+		//this.hamster.body.debugBodyColor = (this.hamster.body.angularVelocity === 0) ? 0xff0000 : 0xffff00;
+	}
+	
+	getPointerLocX(){
+		var pointer = this.input.activePointer;
+		 return pointer.x;
+		
+	}
+	
+	getPointerLocY(){
+		var pointer = this.input.activePointer;
+		 return pointer.y;
+		
 	}
 	
 	pointerMove(pointer) {  
