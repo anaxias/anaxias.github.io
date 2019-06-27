@@ -41,7 +41,7 @@ class loadingScene extends Phaser.Scene{
 		this.hamster.body.debugBodyColor = (this.hamster.body.angularVelocity === 0) ? 0xff0000 : 0xffff00;
 	}
 	
-	function pointerMove (pointer) {  
+	pointerMove (pointer) {  
 		  var angleToPointer = Phaser.Math.Angle.BetweenPoints(this.hamster, pointer);
 		  var angleDelta = angleToPointer - this.hamster.rotation;
 		  
