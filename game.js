@@ -1,7 +1,4 @@
 
-window.onload = function(){
-	
-	
 	var config = {
 		width: 1418,
 		height: 756,
@@ -10,10 +7,10 @@ window.onload = function(){
 		physics:{
 			default: "arcade",
 			arcade:{
-				debug:false
+				debug:true
 			}
 		}
-	}
+	};
 	
 	var game = new Phaser.Game(config);
-}
+
