@@ -17,7 +17,7 @@ class titleScene extends Phaser.Scene{
 		this.background = this.add.image(0,0,"startscreen");
 		this.background.setOrigin(0,0);
 		
-		var pointer = this.input.activePointer;
+		
 		
 		
 		
@@ -26,6 +26,8 @@ class titleScene extends Phaser.Scene{
 	}
 	
 	update(){
+		
+		var pointer = this.input.activePointer;
 		if (pointer.isDown) {
 			this.scene.start("loadGame");
 
