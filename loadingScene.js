@@ -29,19 +29,19 @@ class loadingScene extends Phaser.Scene{
 		
 	}
 	
-	moveMsg(msg, speed){
+	moveMsg(){
 		
-		msg.x += speed;
+		console.log("test");
 	}
 	
 	update(){
-	//	this.moveMsg(this.msg1, 3);
-		pointerMove(this.input.activePointer);
+		this.moveMsg();
+		this.pointerMove(this.input.activePointer);
 		velocityFromRotation(this.hamster.rotation, SPEED, this.hamster.body.velocity);
 		this.hamster.body.debugBodyColor = (this.hamster.body.angularVelocity === 0) ? 0xff0000 : 0xffff00;
 	}
 	
-	this.pointerMove = function(pointer) {  
+	pointerMove(pointer) {  
 		  var angleToPointer = Phaser.Math.Angle.BetweenPoints(this.hamster, pointer);
 		  var angleDelta = angleToPointer - this.hamster.rotation;
 		  
