@@ -26,7 +26,7 @@ class loadingScene extends Phaser.Scene{
 		msg2.body.setCircle(42);
 		msg3.body.setCircle(42);
 		
-		
+	//we will need to change this to just the "message" area later
 	msg1.body.collideWorldBounds = true;
     msg2.body.collideWorldBounds = true;
     msg3.body.collideWorldBounds = true;
@@ -36,13 +36,9 @@ class loadingScene extends Phaser.Scene{
     msg2.body.bounce.set(1);
     msg3.body.bounce.set(1);
 
-  //  msg1.body.gravity.y = 100;
- //   msg2.body.gravity.y = 100;
-  //  msg3.body.gravity.y = 100;
-
-    msg1.body.velocity.set(150);
-    msg2.body.velocity.set(-200, 60);
-    msg3.body.velocity.set(50);
+    msg1.body.velocity.set(350);
+    msg2.body.velocity.set(-250, 60);
+    msg3.body.velocity.set(150);
 		
 	}
 	
