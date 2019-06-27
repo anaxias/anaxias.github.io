@@ -13,6 +13,7 @@ class titleScene extends Phaser.Scene{
 	create(){
 		
 		this.add.text(20, 20, "TESTING");
+		this.physics.startSystem(Phaser.Physics.ARCADE);
 		this.scene.start("loadGame");
 		
 		//this.msgs = this.physics.add.group();
