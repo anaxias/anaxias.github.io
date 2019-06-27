@@ -16,8 +16,34 @@ class loadingScene extends Phaser.Scene{
 	
 	create(){
 		
-		this.msg1 = this.add.image(config.width/2, config.height/2, "test-msg");
+		msg1 = this.add.image(config.width/2, config.height/2, "test-msg");
+		msg2 = this.add.image(config.width/2, config.height/2, "test-msg2");
+		msg3 = this.add.image(config.width/4, config.height/4, "test-msg3");
 		hamster = this.physics.add.image(400, 300, 'hamster').setVelocity(0, 0);
+		
+		this.physics.arcade.enable([msg1, msg2, msg3]);
+		
+		msg1.body.setCircle(45);
+		msg2.body.setCircle(45);
+		msg3.body.setCircle(45);
+		
+		
+	msg1.body.collideWorldBounds = true;
+    msg2.body.collideWorldBounds = true;
+    msg3.body.collideWorldBounds = true;
+    hamster.body.collideWorldBounds = true;
+
+    msg1.body.bounce.set(1);
+    msg2.body.bounce.set(1);
+    msg3.body.bounce.set(1);
+
+    msg1.body.gravity.y = 100;
+    msg2.body.gravity.y = 100;
+    msg3.body.gravity.y = 100;
+
+    msg1.body.velocity.set(150);
+    msg2.body.velocity.set(-200, 60);
+    msg3.body.velocity.set(50);
 		
 	}
 	
@@ -32,6 +58,13 @@ class loadingScene extends Phaser.Scene{
 		this.pointerMove(this.input.activePointer);
 		velocityFromRotation(hamster.rotation, SPEED, hamster.body.velocity);
 		hamster.body.debugBodyColor = (hamster.body.angularVelocity === 0) ? 0xff0000 : 0xffff00;
+		
+		 this.physics.arcade.collide(msg1, msg2);
+		this.physics.arcade.collide(msg1, msg3);
+		this.physics.arcade.collide(msg2, msg3);
+		this.physics.arcade.collide(hamster, msg1);
+		this.physics.arcade.collide(hamster, msg2);
+		this.physics.arcade.collide(hamster, msg3);
 	}
 	
 	getPointerLocX(){

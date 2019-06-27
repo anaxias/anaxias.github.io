@@ -9,6 +9,8 @@ class titleScene extends Phaser.Scene{
 		this.load.image("background", "assets/images/blank-background.png");
 		this.load.image("startscreen", "assets/images/startscreen.png");
 		this.load.image("test-msg", "assets/images/message-placeholder.png");
+		this.load.image("test-msg2", "assets/images/message-placeholder2.png");
+		this.load.image("test-msg3", "assets/images/message-placeholder3.png");
 	}
 	
 	create(){

@@ -25,3 +25,6 @@ var sin = Math.sin;
 var cos = Math.cos;
 var atan2 = Math.atan2;
 var hamster;
+var msg1;
+var msg2;
+var msg3;
