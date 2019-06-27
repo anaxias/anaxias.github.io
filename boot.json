@@ -1,0 +1,9 @@
+{
+    "files": [
+        "titleScene.js",
+        "loadingScene.js",
+        "gameScene.js",
+        "gameOverScene.js",
+        "game.js"
+    ]
+}
