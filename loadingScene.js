@@ -15,10 +15,7 @@ class loadingScene extends Phaser.Scene{
 	}
 	
 	create(){
-		
-		 this.physics.startSystem(Phaser.Physics.ARCADE);
-
-		
+				
 		msg1 = this.add.image(config.width/2, config.height/2, "test-msg");
 		msg2 = this.add.image(config.width/1.5, config.height/1.5, "test-msg2");
 		msg3 = this.add.image(config.width/4, config.height/4, "test-msg3");
