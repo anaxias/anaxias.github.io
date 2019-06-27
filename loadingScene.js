@@ -24,6 +24,7 @@ class loadingScene extends Phaser.Scene{
 	moveMsg(){
 		
 		console.log("x:"+this.getPointerLocX()+" y:"+this.getPointerLocY());
+		console.log(velocityFromRotation(hamster.rotation, SPEED, hamster.body.velocity));
 	}
 	
 	update(){

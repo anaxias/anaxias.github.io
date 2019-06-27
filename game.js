@@ -18,7 +18,7 @@
 var SPEED = 150;
 var ROTATION_SPEED = 2 * Math.PI;
 var ROTATION_SPEED_DEGREES = Phaser.Math.RadToDeg(ROTATION_SPEED);
-var TOLERANCE = 0.01 * ROTATION_SPEED;
+var TOLERANCE = 1 * ROTATION_SPEED;
 
 var velocityFromRotation = Phaser.Physics.Arcade.ArcadePhysics.prototype.velocityFromRotation;
 var sin = Math.sin;
