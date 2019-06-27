@@ -7,7 +7,8 @@
 		physics:{
 			default: "arcade",
 			arcade:{
-				debug:true
+				debug:true,
+				fps: 100
 			}
 		}
 	};
@@ -23,3 +24,4 @@ var velocityFromRotation = Phaser.Physics.Arcade.ArcadePhysics.prototype.velocit
 var sin = Math.sin;
 var cos = Math.cos;
 var atan2 = Math.atan2;
+var hamster;
