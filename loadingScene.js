@@ -10,7 +10,7 @@ class loadingScene extends Phaser.Scene{
 		this.add.text(20,20, "loading game....", {font: "25px Arial", fill:"yellow"});
 		this.background = this.add.image(0,0,"background");
 		this.background.setOrigin(0,0);
-		this.load.image('hamster', 'assets/sprites/placeholder-hamster.png');
+		this.load.image('hamster', 'assets/images/placeholder-hamster.png');
 		
 		//this.msg1 = this.add.image(800, 400, "test-msg");
 		//this.msgs.add(msg1);
