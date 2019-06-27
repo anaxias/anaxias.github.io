@@ -25,7 +25,7 @@ class loadingScene extends Phaser.Scene{
 	create(){
 		
 		this.msg1 = this.add.image(config.width/2, config.height/2, "test-msg");
-		this.hamster = this.physics.add.image(this.getPointerLocX, this.getPointerLocY, 'hamster').setVelocity(SPEED, 0);
+		this.hamster = this.physics.add.image(400, 300, 'hamster').setVelocity(SPEED, 0);
 		
 	}
 	
@@ -63,7 +63,7 @@ class loadingScene extends Phaser.Scene{
 			this.hamster.rotation = angleToPointer;
 			this.hamster.setAngularVelocity(0);
 		  } else {
-			this.hamster.setAngularVelocity(Math.sign(angleDelta) * ROTATION_SPEED_DEGREES);
+			this.hamster.setAngularVelocity(Math.sign(angleDelta));
 		  }
 }
 	
