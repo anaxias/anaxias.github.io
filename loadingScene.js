@@ -40,6 +40,9 @@ class loadingScene extends Phaser.Scene{
 		backgroundMusic.loop = true;
 		backgroundMusic.play();
 		
+		this.timer = this.time.create();
+		this.timer.start();
+		
 	}
 	
 	moveMsg(){
@@ -58,7 +61,7 @@ class loadingScene extends Phaser.Scene{
 				
 		
 		//this will generate a new message of a random type from a random user
-		if(this.time.totalElapsedSeconds()%5){
+		if(this.timer.seconds%5){
 			var random_user = Phaser.Math.Between(1, 4);
 			
 			if(random_user == 1){
