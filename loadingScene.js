@@ -106,7 +106,7 @@ class loadingScene extends Phaser.Scene{
 				new_msg.body.bounce.set(1);
 				message_array.push(new_msg);
 			}
-			}else if(random_msg_type == 5){ //memes
+			else if(random_msg_type == 5){ //memes
 				var new_msg = this.physics.add.image(1050, start_loc, "test-msg").setVelocity(350);
 				new_msg.body.setCircle(42);
 				new_msg.body.collideWorldBounds = true;
@@ -123,9 +123,9 @@ class loadingScene extends Phaser.Scene{
 		//this.physics.collide(msg2, msg3);
 
 		//this updates the collisions
-		/*for (var i = 0; i < message_array.length; i++) {
+		for (var i = 0; i < message_array.length; i++) {
 			this.physics.collide(hamster, message_array[i]);
-		}*/
+		}
 		
 		
 		
