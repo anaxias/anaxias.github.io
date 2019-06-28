@@ -85,7 +85,7 @@ class loadingScene extends Phaser.Scene{
 			hamster.rotation = angleToPointer;
 			hamster.setAngularVelocity(0);
 		  } else {
-			hamster.setAngularVelocity(Math.sign(angleDelta));
+			hamster.setAngularVelocity(Math.sign(angleDelta) * ROTATION_SPEED_DEGREES);
 		  }
 }
 	
