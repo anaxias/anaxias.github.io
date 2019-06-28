@@ -121,9 +121,11 @@ class loadingScene extends Phaser.Scene{
 		// this.physics.collide(msg1, msg2);
 	//	this.physics.collide(msg1, msg3);
 		//this.physics.collide(msg2, msg3);
+		
+		var msg_array_length = message_array.length;
 
 		//this updates the collisions
-		for (var i = 0; i < message_array.length; i++) {
+		for (var i = 0; i < msg_array_length; i++) {
 			this.physics.collide(hamster, message_array[i]);
 		}
 		
