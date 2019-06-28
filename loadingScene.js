@@ -22,7 +22,7 @@ class loadingScene extends Phaser.Scene{
 		var msg2 = this.physics.add.image(1050, 225, "test-msg2").setVelocity(-250, 60);
 		message_array.push(msg2);
 		var msg3 = this.physics.add.image(1050, 275, "test-msg3").setVelocity(150);
-		message_array.push(msg4);
+		message_array.push(msg3);
 		
 		hamster = this.physics.add.image(400, 300, 'hamster').setVelocity(0, 0);
 		hamster.body.collideWorldBounds = true;
