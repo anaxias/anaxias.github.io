@@ -44,11 +44,15 @@ class loadingScene extends Phaser.Scene{
 			delay: 500,                // ms
 			callback: callback,
 			//args: [],
-			callbackScope: thisArg,
+			callbackScope: this,
 			loop: true
 		});
 
 		
+	}
+	
+	callback(){
+		console.log("It's been a milisecond!");
 	}
 	
 	moveMsg(){
