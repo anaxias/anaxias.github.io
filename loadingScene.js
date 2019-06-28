@@ -17,9 +17,9 @@ class loadingScene extends Phaser.Scene{
 	
 	create(){
 				
-		msg1 = this.physics.add.image(config.width/2, config.height/2, "test-msg");
-		msg2 = this.physics.add.image(config.width/1.5, config.height/1.5, "test-msg2");
-		msg3 = this.physics.add.image(config.width/4, config.height/4, "test-msg3");
+		msg1 = this.physics.add.image(1050, 125, "test-msg");
+		msg2 = this.physics.add.image(1050, 225, "test-msg2");
+		msg3 = this.physics.add.image(1050, 275, "test-msg3");
 		hamster = this.physics.add.image(400, 300, 'hamster').setVelocity(0, 0);
 		
 		
