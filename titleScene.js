@@ -8,11 +8,11 @@ class titleScene extends Phaser.Scene{
 	preload(){
 		this.load.image("background", "assets/images/backgroundv2.png");
 		this.load.image("startscreen", "assets/images/startscreen.png");
-		this.load.image("test-msg", "assets/images/message-memes.png");
-		this.load.image("test-msg2", "assets/images/message-music.png");
-		this.load.image("test-msg3", "assets/images/message-general.png");
-		this.load.image("test-msg4", "assets/images/message-art.png");
-		this.load.image("test-msg5", "assets/images/message-prog.png");
+	//	this.load.image("test-msg", "assets/images/message-memes.png");
+	//	this.load.image("test-msg2", "assets/images/message-music.png");
+	//	this.load.image("test-msg3", "assets/images/message-general.png");
+	//	this.load.image("test-msg4", "assets/images/message-art.png");
+	//	this.load.image("test-msg5", "assets/images/message-prog.png");
 	}
 	
 	create(){
