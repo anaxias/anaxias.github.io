@@ -41,9 +41,9 @@ class loadingScene extends Phaser.Scene{
     msg2.body.velocity.set(-250, 60);
     msg3.body.velocity.set(150);
 	
-	music = new Phaser.Sound(this,'bgm',1,true);
-
-	music.play();
+	var backgroundMusic = scene.sound.add('bgm');
+	backgroundMusic.loop = true;
+	backgroundMusic.play();
 		
 	}
 	
