@@ -17,33 +17,28 @@ class loadingScene extends Phaser.Scene{
 	
 	create(){
 				
-		msg1 = this.physics.add.image(1050, 125, "test-msg");
-		msg2 = this.physics.add.image(1050, 225, "test-msg2");
-		msg3 = this.physics.add.image(1050, 275, "test-msg3");
+		var msg1 = this.physics.add.image(1050, 125, "test-msg").setVelocity(350);
+		message_array.push(msg1);
+		var msg2 = this.physics.add.image(1050, 225, "test-msg2").setVelocity(-250, 60);
+		message_array.push(msg2);
+		var msg3 = this.physics.add.image(1050, 275, "test-msg3").setVelocity(150);
+		message_array.push(msg4);
+		
 		hamster = this.physics.add.image(400, 300, 'hamster').setVelocity(0, 0);
+		hamster.body.collideWorldBounds = true;
 		
 		
-		msg1.body.setCircle(42);
-		msg2.body.setCircle(42);
-		msg3.body.setCircle(42);
+		for (var i = 0; i < message_array.length; i++) {
+			message_array[i].body.setCircle(42);
+			message_array[i].body.collideWorldBounds = true;
+			message_array[i].body.bounce.set(1);
+		}
 		
-	//we will need to change this to just the "message" area later
-	msg1.body.collideWorldBounds = true;
-    msg2.body.collideWorldBounds = true;
-    msg3.body.collideWorldBounds = true;
-    hamster.body.collideWorldBounds = true;
 
-    msg1.body.bounce.set(1);
-    msg2.body.bounce.set(1);
-    msg3.body.bounce.set(1);
-
-    msg1.body.velocity.set(350);
-    msg2.body.velocity.set(-250, 60);
-    msg3.body.velocity.set(150);
-	
-	var backgroundMusic = this.sound.add('bgm');
-	backgroundMusic.loop = true;
-	backgroundMusic.play();
+		
+		var backgroundMusic = this.sound.add('bgm');
+		backgroundMusic.loop = true;
+		backgroundMusic.play();
 		
 	}
 	
@@ -55,16 +50,85 @@ class loadingScene extends Phaser.Scene{
 	
 	update(){
 		//this.moveMsg();
+		
+		//this updates the hamster movement
 		this.pointerMove(this.input.activePointer);
 		velocityFromRotation(hamster.rotation, SPEED, hamster.body.velocity);
 		hamster.body.debugBodyColor = (hamster.body.angularVelocity === 0) ? 0xff0000 : 0xffff00;
+				
 		
-		 this.physics.collide(msg1, msg2);
-		this.physics.collide(msg1, msg3);
-		this.physics.collide(msg2, msg3);
-		this.physics.collide(hamster, msg1);
-		this.physics.collide(hamster, msg2);
-		this.physics.collide(hamster, msg3);
+		//this will generate a new message of a random type from a random user
+		if(this.time.totalElapsedSeconds()%5){
+			var random_user = Phaser.Math.Between(1, 4);
+			
+			if(random_user == 1){
+				var start_loc = 125;	
+			}
+			else if(random_user == 2){
+				var start_loc = 175;
+			}
+			else if(random_user == 3){
+				var start_loc = 225;
+				
+			}else if(random_user == 4){
+				var start_loc = 275;
+			}
+			else start_loc = 100; //just in case
+			
+			
+			var random_msg_type = Phaser.Math.Between(1, 5);
+			
+			if(random_msg_type == 1){ // general
+				var new_msg = this.physics.add.image(1050, start_loc, "test-msg3").setVelocity(350);
+				new_msg.body.setCircle(42);
+				new_msg.body.collideWorldBounds = true;
+				new_msg.body.bounce.set(1);
+				message_array.push(new_msg);
+			}
+			else if(random_msg_type == 2){ //art
+				var new_msg = this.physics.add.image(1050, start_loc, "test-msg4").setVelocity(350);
+				new_msg.body.setCircle(42);
+				new_msg.body.collideWorldBounds = true;
+				new_msg.body.bounce.set(1);
+				message_array.push(new_msg);
+			}
+			else if(random_msg_type == 3){ //music
+				var new_msg = this.physics.add.image(1050, start_loc, "test-msg2").setVelocity(350);
+				new_msg.body.setCircle(42);
+				new_msg.body.collideWorldBounds = true;
+				new_msg.body.bounce.set(1);
+				message_array.push(new_msg);
+				
+			}else if(random_msg_type == 4){ //programming
+				var new_msg = this.physics.add.image(1050, start_loc, "test-msg5").setVelocity(350);
+				new_msg.body.setCircle(42);
+				new_msg.body.collideWorldBounds = true;
+				new_msg.body.bounce.set(1);
+				message_array.push(new_msg);
+			}
+			}else if(random_msg_type == 5){ //memes
+				var new_msg = this.physics.add.image(1050, start_loc, "test-msg").setVelocity(350);
+				new_msg.body.setCircle(42);
+				new_msg.body.collideWorldBounds = true;
+				new_msg.body.bounce.set(1);
+				message_array.push(new_msg);
+			}
+			
+		}
+		
+		
+		
+		// this.physics.collide(msg1, msg2);
+	//	this.physics.collide(msg1, msg3);
+		//this.physics.collide(msg2, msg3);
+
+		//this updates the collisions
+		for (var i = 0; i < message_array.length; i++) {
+			this.physics.collide(hamster, message_array[i]);
+		}
+		
+		
+		
 	}
 	
 	getPointerLocX(){
