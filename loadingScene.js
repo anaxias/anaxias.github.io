@@ -70,7 +70,7 @@ class loadingScene extends Phaser.Scene{
 				console.log(timer.getElapsedSeconds());
 		
 		//this will generate a new message of a random type from a random user
-		if(timer.getElapsedSeconds()%5 == 0){
+		if((timer.getElapsedSeconds()*100)%5 == 0){
 			console.log("Lets make a new spawn!");
 			var random_user = Phaser.Math.Between(1, 4);
 			
