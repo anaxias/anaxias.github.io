@@ -97,7 +97,7 @@ class loadingScene extends Phaser.Scene{
 				new_msg.body.setCircle(42);
 				new_msg.body.collideWorldBounds = true;
 				new_msg.body.bounce.set(1);
-				message_array.push(new_msg);
+				message_array.push(new_msg); 
 			}
 			else if(random_msg_type == 2){ //art
 				var new_msg = this.physics.add.image(1050, start_loc, "test-msg4").setVelocity(random_velocity);
