@@ -11,6 +11,7 @@ class loadingScene extends Phaser.Scene{
 		this.background = this.add.image(0,0,"background");
 		this.background.setOrigin(0,0);
 		this.load.image('hamster', 'assets/images/placeholder-hamster.png');
+		this.load.audio('bgm', ['assets/audio/bgm-v1.mp3']);
 
 	}
 	
@@ -39,6 +40,10 @@ class loadingScene extends Phaser.Scene{
     msg1.body.velocity.set(350);
     msg2.body.velocity.set(-250, 60);
     msg3.body.velocity.set(150);
+	
+	backgroundMusic = this.add.audio('bgm');
+	backgroundMusic.loop = true;
+	backgroundMusic.play();
 		
 	}
 	
@@ -85,7 +90,7 @@ class loadingScene extends Phaser.Scene{
 			hamster.rotation = angleToPointer;
 			hamster.setAngularVelocity(0);
 		  } else {
-			hamster.setAngularVelocity(Math.sign(angleDelta) * ROTATION_SPEED_DEGREES);
+			hamster.setAngularVelocity(Math.sign(angleDelta));
 		  }
 }
 	
