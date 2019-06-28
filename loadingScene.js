@@ -90,37 +90,38 @@ class loadingScene extends Phaser.Scene{
 			
 			
 			var random_msg_type = Phaser.Math.Between(1, 5);
+			var random_velocity = Phaser.Math.Between(-150, -350);
 			
 			if(random_msg_type == 1){ // general
-				var new_msg = this.physics.add.image(1050, start_loc, "test-msg3").setVelocity(350);
+				var new_msg = this.physics.add.image(1050, start_loc, "test-msg3").setVelocity(random_velocity);
 				new_msg.body.setCircle(42);
 				new_msg.body.collideWorldBounds = true;
 				new_msg.body.bounce.set(1);
 				message_array.push(new_msg);
 			}
 			else if(random_msg_type == 2){ //art
-				var new_msg = this.physics.add.image(1050, start_loc, "test-msg4").setVelocity(350);
+				var new_msg = this.physics.add.image(1050, start_loc, "test-msg4").setVelocity(random_velocity);
 				new_msg.body.setCircle(42);
 				new_msg.body.collideWorldBounds = true;
 				new_msg.body.bounce.set(1);
 				message_array.push(new_msg);
 			}
 			else if(random_msg_type == 3){ //music
-				var new_msg = this.physics.add.image(1050, start_loc, "test-msg2").setVelocity(350);
+				var new_msg = this.physics.add.image(1050, start_loc, "test-msg2").setVelocity(random_velocity);
 				new_msg.body.setCircle(42);
 				new_msg.body.collideWorldBounds = true;
 				new_msg.body.bounce.set(1);
 				message_array.push(new_msg);
 				
 			}else if(random_msg_type == 4){ //programming
-				var new_msg = this.physics.add.image(1050, start_loc, "test-msg5").setVelocity(350);
+				var new_msg = this.physics.add.image(1050, start_loc, "test-msg5").setVelocity(random_velocity);
 				new_msg.body.setCircle(42);
 				new_msg.body.collideWorldBounds = true;
 				new_msg.body.bounce.set(1);
 				message_array.push(new_msg);
 			}
 			else if(random_msg_type == 5){ //memes
-				var new_msg = this.physics.add.image(1050, start_loc, "test-msg").setVelocity(350);
+				var new_msg = this.physics.add.image(1050, start_loc, "test-msg").setVelocity(random_velocity);
 				new_msg.body.setCircle(42);
 				new_msg.body.collideWorldBounds = true;
 				new_msg.body.bounce.set(1);
