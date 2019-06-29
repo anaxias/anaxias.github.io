@@ -56,11 +56,11 @@ class loadingScene extends Phaser.Scene{
 			message_array[i].body.collideWorldBounds = true;
 			message_array[i].body.bounce.set(1);
 			message_array[i].name = i;
-		//	this.physics.add.overlap(general, message_array[i], this.channelSubmit(message_array[i], "general"));
-		//	this.physics.add.overlap(art, message_array[i], this.channelSubmit(message_array[i], "art"));
-		//	this.physics.add.overlap(music, message_array[i], this.channelSubmit(message_array[i], "music"));
-		//	this.physics.add.overlap(prog, message_array[i], this.channelSubmit(message_array[i], "prog"));
-		//	this.physics.add.overlap(memes, message_array[i], this.channelSubmit(message_array[i], "memes"));
+			this.physics.add.overlap(general, message_array[i], this.channelSubmit(message_array[i], "general"));
+			this.physics.add.overlap(art, message_array[i], this.channelSubmit(message_array[i], "art"));
+			this.physics.add.overlap(music, message_array[i], this.channelSubmit(message_array[i], "music"));
+			this.physics.add.overlap(prog, message_array[i], this.channelSubmit(message_array[i], "prog"));
+			this.physics.add.overlap(memes, message_array[i], this.channelSubmit(message_array[i], "memes"));
 		}
 		
 
@@ -153,6 +153,7 @@ class loadingScene extends Phaser.Scene{
 	}
 	
 	addNewMessage(){
+		console.log("adding new message!");
 		var random_user = Phaser.Math.Between(1, 4);
 			
 			if(random_user == 1){
@@ -205,6 +206,7 @@ class loadingScene extends Phaser.Scene{
 			this.physics.add.overlap(music,new_msg, this.channelSubmit(new_msg, "music"));
 			this.physics.add.overlap(prog, new_msg, this.channelSubmit(new_msg, "prog"));
 			this.physics.add.overlap(memes,new_msg, this.channelSubmit(new_msg, "memes"));
+			console.log(new_msg);
 	}
 	
 	channelSubmit(message, channel){
@@ -221,8 +223,8 @@ class loadingScene extends Phaser.Scene{
 				totalHP +=2;
 				//need to delete the object
 				//and somehow remove it from array
-				message_array.splice(parseInt(message.name), 1);
-				message.destroy();
+			//	message_array.splice(parseInt(message.name), 1);
+			//	message.destroy();
 				
 			}
 			else{
