@@ -226,7 +226,7 @@ class loadingScene extends Phaser.Scene{
 			|| (message.texture.key == "test-msg5" && channel.texture.key == "prog") 
 			|| (message.texture.key == "test-msg" && channel.texture.key == "memes")){
 				console.log("overlap is good! channel: "+channel+", message: "+message.name+", "+message.texture.key);
-				this.sound.play('success');
+				success_sfx.play('success');
 				totalHP +=2;
 				message_array.splice(parseInt(message.name), 1);
 				message.destroy();
