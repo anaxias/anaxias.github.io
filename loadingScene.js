@@ -66,7 +66,7 @@ class loadingScene extends Phaser.Scene{
 		velocityFromRotation(hamster.rotation, SPEED, hamster.body.velocity);
 		hamster.body.debugBodyColor = (hamster.body.angularVelocity === 0) ? 0xff0000 : 0xffff00;
 				
-				//console.log(timer.getElapsedSeconds()*100);
+				console.log((timer.getElapsedSeconds()*100)%17);
 		
 		//this will generate a new message of a random type from a random user
 		if((Phaser.Math.FloorTo(timer.getElapsedSeconds()*100))%17 == 0){
