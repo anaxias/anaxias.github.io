@@ -217,15 +217,15 @@ class loadingScene extends Phaser.Scene{
 		
 		if(message){
 			
-			console.log(message);
-			console.log(channel);
+		//	console.log(message);
+		//	console.log(channel);
 			
 			if((message.texture.key == "test-msg3" && channel.texture.key == "general")
 			|| (message.texture.key == "test-msg4" && channel.texture.key == "art") 
 			|| (message.texture.key == "test-msg2" && channel.texture.key == "music") 
 			|| (message.texture.key == "test-msg5" && channel.texture.key == "prog") 
 			|| (message.texture.key == "test-msg" && channel.texture.key == "memes")){
-				console.log("overlap is good! channel: "+channel+", message: "+message.name+", "+message.texture.key);
+				//console.log("overlap is good! channel: "+channel+", message: "+message.name+", "+message.texture.key);
 				success_sfx.play();
 				totalHP +=8;
 				message_array.splice(parseInt(message.name), 1);
@@ -235,7 +235,7 @@ class loadingScene extends Phaser.Scene{
 			else{
 				//message.tint = 0xFF0000;
 				error_sfx.play();
-				totalHP -= 5;
+				totalHP -= 4;
 					//need to delete the object
 				//and somehow remove it from array
 				
@@ -250,7 +250,7 @@ class loadingScene extends Phaser.Scene{
 					loop: false
 				});*/
 			}
-			console.log(totalHP);
+			//console.log(totalHP);
 		}
 		else console.log("message was undefined... :thinking:");
 	}
