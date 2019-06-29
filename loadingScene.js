@@ -214,7 +214,7 @@ class loadingScene extends Phaser.Scene{
 		|| (message.texture.key == "test-msg2" && channel == "music") 
 		|| (message.texture.key == "test-msg5" && channel == "prog") 
 		|| (message.texture.key == "test-msg" && channel == "memes")){
-			success_sfx.play();
+			this.sound.play('success');
 			totalHP +=2;
 			//need to delete the object
 			//and somehow remove it from array
