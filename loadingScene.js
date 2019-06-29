@@ -221,7 +221,7 @@ class loadingScene extends Phaser.Scene{
 			message.tint(0xFF0000);
 			totalHP--;
 			var quickTime = this.time.addEvent({
-				delay: 2000                // ms
+				delay: 2000,                // ms
 				callback: this.tintMsg(message),
 				//args: [],
 				callbackScope: this,
