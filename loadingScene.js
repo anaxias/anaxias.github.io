@@ -153,7 +153,7 @@ class loadingScene extends Phaser.Scene{
 	}
 	
 	addNewMessage(){
-		console.log("adding new message!");
+		//console.log("adding new message!");
 		var random_user = Phaser.Math.Between(1, 4);
 			
 			if(random_user == 1){
@@ -206,7 +206,7 @@ class loadingScene extends Phaser.Scene{
 			this.physics.add.overlap(music,new_msg, this.channelSubmit(new_msg, "music"));
 			this.physics.add.overlap(prog, new_msg, this.channelSubmit(new_msg, "prog"));
 			this.physics.add.overlap(memes,new_msg, this.channelSubmit(new_msg, "memes"));
-			console.log(new_msg);
+		//	console.log(new_msg);
 	}
 	
 	channelSubmit(message, channel){
