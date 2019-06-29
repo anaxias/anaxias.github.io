@@ -12,6 +12,7 @@ class loadingScene extends Phaser.Scene{
 		this.load.image('hamster', 'assets/images/placeholder-hamster.png');
 		this.load.audio('bgm', ['assets/audio/bgm-1v1-full.mp3']);
 		this.load.audio('success', ['assets/audio/discord_msg_sound.mp3']);
+		this.load.audio('error', ['assets/audio/error.mp3']);
 		
 		this.load.image('100HP', 'assets/images/100percentHP.png');
 		this.load.image('80HP', 'assets/images/80percentHP.png');
@@ -218,19 +219,21 @@ class loadingScene extends Phaser.Scene{
 			console.log(message);
 			console.log(channel);
 			
-			if((message.texture.key == "test-msg3" && channel == "general")
-			|| (message.texture.key == "test-msg4" && channel == "art") 
-			|| (message.texture.key == "test-msg2" && channel == "music") 
-			|| (message.texture.key == "test-msg5" && channel == "prog") 
-			|| (message.texture.key == "test-msg" && channel == "memes")){
+			if((message.texture.key == "test-msg3" && channel.texture.key == "general")
+			|| (message.texture.key == "test-msg4" && channel.texture.key == "art") 
+			|| (message.texture.key == "test-msg2" && channel.texture.key == "music") 
+			|| (message.texture.key == "test-msg5" && channel.texture.key == "prog") 
+			|| (message.texture.key == "test-msg" && channel.texture.key == "memes")){
 				console.log("overlap is good! channel: "+channel+", message: "+message.name+", "+message.texture.key);
 				this.sound.play('success');
 				totalHP +=2;
-			
+				message_array.splice(parseInt(message.name), 1);
+				message.destroy();
 				
 			}
 			else{
 				//message.tint = 0xFF0000;
+				this.sound.play('error');
 				totalHP--;
 					//need to delete the object
 				//and somehow remove it from array
