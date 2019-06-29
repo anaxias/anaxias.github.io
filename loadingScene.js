@@ -208,32 +208,37 @@ class loadingScene extends Phaser.Scene{
 	}
 	
 	channelSubmit(message, channel){
-		console.log("overlap!!!! channel: "+channel+", message: "+message.name+", "+message.texture.key);
-		if((message.texture.key == "test-msg3" && channel == "general")
-		|| (message.texture.key == "test-msg4" && channel == "art") 
-		|| (message.texture.key == "test-msg2" && channel == "music") 
-		|| (message.texture.key == "test-msg5" && channel == "prog") 
-		|| (message.texture.key == "test-msg" && channel == "memes")){
-			this.sound.play('success');
-			totalHP +=2;
-			//need to delete the object
-			//and somehow remove it from array
-			message_array.splice(parseInt(message.name), 1);
-			message.destroy();
+		
+		if(message){
 			
+			console.log("overlap!!!! channel: "+channel+", message: "+message.name+", "+message.texture.key);
+			if((message.texture.key == "test-msg3" && channel == "general")
+			|| (message.texture.key == "test-msg4" && channel == "art") 
+			|| (message.texture.key == "test-msg2" && channel == "music") 
+			|| (message.texture.key == "test-msg5" && channel == "prog") 
+			|| (message.texture.key == "test-msg" && channel == "memes")){
+				this.sound.play('success');
+				totalHP +=2;
+				//need to delete the object
+				//and somehow remove it from array
+				message_array.splice(parseInt(message.name), 1);
+				message.destroy();
+				
+			}
+			else{
+				message.tint = 0xFF0000;
+				totalHP--;
+				var quickTime = this.time.addEvent({
+					delay: 2000,                // ms
+					callback: this.tintMsg(message),
+					//args: [],
+					callbackScope: this,
+					loop: false
+				});
+			}
+			console.log(totalHP);
 		}
-		else{
-			message.tint = 0xFF0000;
-			totalHP--;
-			var quickTime = this.time.addEvent({
-				delay: 2000,                // ms
-				callback: this.tintMsg(message),
-				//args: [],
-				callbackScope: this,
-				loop: false
-			});
-		}
-		console.log(totalHP);
+		else console.log("message was undefined... :thinking:");
 	}
 	
 	tintMsg(message){
