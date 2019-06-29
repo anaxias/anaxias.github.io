@@ -10,7 +10,7 @@ class loadingScene extends Phaser.Scene{
 		this.background = this.add.image(0,0,"background");
 		this.background.setOrigin(0,0);
 		this.load.image('hamster', 'assets/images/placeholder-hamster.png');
-		this.load.audio('bgm', ['assets/audio/bgm-v1.mp3']);
+		this.load.audio('bgm', ['assets/audio/bgm-1v1-full.mp3']);
 		this.load.audio('success', ['assets/audio/discord_msg_sound.mp3']);
 		
 		this.load.image('100HP', 'assets/images/100percentHP.png');
@@ -26,13 +26,19 @@ class loadingScene extends Phaser.Scene{
 	create(){
 		
 		//add channels
-		general = this.physics.add.image(110, 85, "general");
-		art = this.physics.add.image(110, 170, "art");
-		music = this.physics.add.image(110, 260, "music");
-		prog = this.physics.add.image(110, 350, "prog");
-		memes = this.physics.add.image(110, 430, "memes");
+		general = this.physics.add.image(60, 125, "general");
+		art = this.physics.add.image(60, 210, "art");
+		music = this.physics.add.image(60, 300, "music");
+		prog = this.physics.add.image(60, 390, "prog");
+		memes = this.physics.add.image(60, 470, "memes");
 		
-	//	HP = this.add.image(910, 10, '100HP');
+		HP0 = this.add.image(910, 10, '0HP');
+		HP20 = this.add.image(910, 10, '20HP');
+		HP40 = this.add.image(910, 10, '40HP');
+		HP60 = this.add.image(910, 10, '60HP');
+		HP80 = this.add.image(910, 10, '80HP');
+		HP100 = this.add.image(910, 10, '100HP');
+		totalHP = 100;
 				
 		var msg1 = this.physics.add.image(1050, 125, "test-msg").setVelocity(350);
 		message_array.push(msg1);
@@ -49,6 +55,11 @@ class loadingScene extends Phaser.Scene{
 			message_array[i].body.setCircle(42);
 			message_array[i].body.collideWorldBounds = true;
 			message_array[i].body.bounce.set(1);
+			this.physics.add.overlap(general, message_array[i], this.channelSubmit(message_array[i], "general"));
+			this.physics.add.overlap(art, message_array[i], this.channelSubmit(message_array[i], "art"));
+			this.physics.add.overlap(music, message_array[i], this.channelSubmit(message_array[i], "music"));
+			this.physics.add.overlap(prog, message_array[i], this.channelSubmit(message_array[i], "prog"));
+			this.physics.add.overlap(memes, message_array[i], this.channelSubmit(message_array[i], "memes"));
 		}
 		
 
@@ -66,6 +77,9 @@ class loadingScene extends Phaser.Scene{
 			loop: true
 		});
 
+/////////////////////
+		console.log(message_array);
+		console.log(msg3);
 		
 	}
 	
@@ -98,9 +112,14 @@ class loadingScene extends Phaser.Scene{
 			this.physics.collide(hamster, message_array[i]);
 		}
 		
+		if(totalHP <= 0){
+			this.scene.start("endGame");
+		}
+		
 		
 		
 	}
+	
 	
 	getPointerLocX(){
 		var pointer = this.input.activePointer;
@@ -154,39 +173,59 @@ class loadingScene extends Phaser.Scene{
 			
 			if(random_msg_type == 1){ // general
 				var new_msg = this.physics.add.image(1050, start_loc, "test-msg3").setVelocity(random_velocity, random_velocity_angle);
-				new_msg.body.setCircle(42);
-				new_msg.body.collideWorldBounds = true;
-				new_msg.body.bounce.set(1);
-				message_array.push(new_msg); 
+				 
 			}
 			else if(random_msg_type == 2){ //art
 				var new_msg = this.physics.add.image(1050, start_loc, "test-msg4").setVelocity(random_velocity, random_velocity_angle);
-				new_msg.body.setCircle(42);
-				new_msg.body.collideWorldBounds = true;
-				new_msg.body.bounce.set(1);
-				message_array.push(new_msg);
+				
 			}
 			else if(random_msg_type == 3){ //music
 				var new_msg = this.physics.add.image(1050, start_loc, "test-msg2").setVelocity(random_velocity, random_velocity_angle);
-				new_msg.body.setCircle(42);
-				new_msg.body.collideWorldBounds = true;
-				new_msg.body.bounce.set(1);
-				message_array.push(new_msg);
+				
 				
 			}else if(random_msg_type == 4){ //programming
 				var new_msg = this.physics.add.image(1050, start_loc, "test-msg5").setVelocity(random_velocity, random_velocity_angle);
-				new_msg.body.setCircle(42);
-				new_msg.body.collideWorldBounds = true;
-				new_msg.body.bounce.set(1);
-				message_array.push(new_msg);
+				
 			}
 			else if(random_msg_type == 5){ //memes
 				var new_msg = this.physics.add.image(1050, start_loc, "test-msg").setVelocity(random_velocity, random_velocity_angle);
-				new_msg.body.setCircle(42);
-				new_msg.body.collideWorldBounds = true;
-				new_msg.body.bounce.set(1);
-				message_array.push(new_msg);
+				
 			}
+			
+			new_msg.body.setCircle(42);
+			new_msg.body.collideWorldBounds = true;
+			new_msg.body.bounce.set(1);
+			message_array.push(new_msg);
+			this.physics.add.overlap(general, new_msg, this.channelSubmit(new_msg, "general"));
+			this.physics.add.overlap(art, new_msg, this.channelSubmit(new_msg, "art"));
+			this.physics.add.overlap(music,new_msg, this.channelSubmit(new_msg, "music"));
+			this.physics.add.overlap(prog, new_msg, this.channelSubmit(new_msg, "prog"));
+			this.physics.add.overlap(memes,new_msg, this.channelSubmit(new_msg, "memes"));
+	}
+	
+	channelSubmit(message, channel){
+		if((message.key == "general" && channel == "general")
+		|| (message.key == "art" && channel == "art") 
+		|| (message.key == "music" && channel == "music") 
+		|| (message.key == "prog" && channel == "prog") 
+		|| (message.key == "memes" && channel == "memes")){
+			success_sfx.play();
+			totalHP +=2;
+			//need to delete the object
+			message.destroy();
+			//and somehow remove it from array
+		}
+		else{
+			message.tint(0xFF0000);
+			totalHP--;
+			var quickTime = this.time.addEvent({
+				delay: 2000                // ms
+				callback: function(){message.tint(0xFFFFFF);},
+				//args: [],
+				callbackScope: this,
+				loop: false
+			});
+		}
 	}
 	
 }
