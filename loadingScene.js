@@ -32,12 +32,12 @@ class loadingScene extends Phaser.Scene{
 		prog = this.physics.add.image(90, 382, "prog");
 		memes = this.physics.add.image(90, 462, "memes");
 		
-		HP0 = this.add.image(1060, 29, '0HP');
-		HP20 = this.add.image(1060, 29, '20HP');
-		HP40 = this.add.image(1060, 29, '40HP');
-		HP60 = this.add.image(1060, 29, '60HP');
-		HP80 = this.add.image(1060, 29, '80HP');
-		HP100 = this.add.image(1060, 29, '100HP');
+		HP0 = this.add.image(1055, 29, '0HP');
+		HP20 = this.add.image(1055, 29, '20HP');
+		HP40 = this.add.image(1055, 29, '40HP');
+		HP60 = this.add.image(1055, 29, '60HP');
+		HP80 = this.add.image(1055, 29, '80HP');
+		HP100 = this.add.image(1055, 29, '100HP');
 		totalHP = 100;
 				
 		var msg1 = this.physics.add.image(1050, 125, "test-msg").setVelocity(350);
@@ -55,6 +55,7 @@ class loadingScene extends Phaser.Scene{
 			message_array[i].body.setCircle(42);
 			message_array[i].body.collideWorldBounds = true;
 			message_array[i].body.bounce.set(1);
+			message_array[i].name = i;
 			this.physics.add.overlap(general, message_array[i], this.channelSubmit(message_array[i], "general"));
 			this.physics.add.overlap(art, message_array[i], this.channelSubmit(message_array[i], "art"));
 			this.physics.add.overlap(music, message_array[i], this.channelSubmit(message_array[i], "music"));
@@ -197,6 +198,7 @@ class loadingScene extends Phaser.Scene{
 			new_msg.body.setCircle(42);
 			new_msg.body.collideWorldBounds = true;
 			new_msg.body.bounce.set(1);
+			new_msg.name = message_array.length;
 			message_array.push(new_msg);
 			this.physics.add.overlap(general, new_msg, this.channelSubmit(new_msg, "general"));
 			this.physics.add.overlap(art, new_msg, this.channelSubmit(new_msg, "art"));
@@ -206,6 +208,7 @@ class loadingScene extends Phaser.Scene{
 	}
 	
 	channelSubmit(message, channel){
+		console.log("overlap!!!! channel: "+channel+", message: "+message);
 		if((message.key == "general" && channel == "general")
 		|| (message.key == "art" && channel == "art") 
 		|| (message.key == "music" && channel == "music") 
@@ -214,8 +217,10 @@ class loadingScene extends Phaser.Scene{
 			success_sfx.play();
 			totalHP +=2;
 			//need to delete the object
-			message.destroy();
 			//and somehow remove it from array
+			message_array.splice(parseInt(message.name), 1);
+			message.destroy();
+			
 		}
 		else{
 			message.tint = 0xFF0000;
