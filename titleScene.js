@@ -39,6 +39,7 @@ class titleScene extends Phaser.Scene{
 		var pointer = this.input.activePointer;
 		if (pointer.isDown) {
 			this.scene.start("loadGame");
+			introMusic.stop();
 
 		}
 	}

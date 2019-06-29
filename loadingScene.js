@@ -7,7 +7,6 @@ class loadingScene extends Phaser.Scene{
 	}
 	
 	preload(){
-		this.add.text(20,20, "loading game....", {font: "25px Arial", fill:"yellow"});
 		this.background = this.add.image(0,0,"background");
 		this.background.setOrigin(0,0);
 		this.load.image('hamster', 'assets/images/placeholder-hamster.png');
@@ -70,7 +69,7 @@ class loadingScene extends Phaser.Scene{
 				//console.log(timer.getElapsedSeconds()*100);
 		
 		//this will generate a new message of a random type from a random user
-		if((Phaser.Math.FloorTo(timer.getElapsedSeconds()*100))%15 == 0){
+		if((Phaser.Math.FloorTo(timer.getElapsedSeconds()*100))%8 == 0){
 		//	console.log("Lets make a new spawn!");
 			var random_user = Phaser.Math.Between(1, 4);
 			
