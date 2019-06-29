@@ -217,15 +217,15 @@ class loadingScene extends Phaser.Scene{
 		
 		if(message){
 			
-			console.log(message);
-			console.log(channel);
+			//console.log(message);
+			//console.log(channel);
 			
 			if((message.texture.key == "test-msg3" && channel.texture.key == "general")
 			|| (message.texture.key == "test-msg4" && channel.texture.key == "art") 
 			|| (message.texture.key == "test-msg2" && channel.texture.key == "music") 
 			|| (message.texture.key == "test-msg5" && channel.texture.key == "prog") 
 			|| (message.texture.key == "test-msg" && channel.texture.key == "memes")){
-				console.log("overlap is good! channel: "+channel+", message: "+message.name+", "+message.texture.key);
+				//console.log("overlap is good! channel: "+channel+", message: "+message.name+", "+message.texture.key);
 				this.sound.play('success');
 				totalHP +=2;
 				message_array.splice(parseInt(message.name), 1);
