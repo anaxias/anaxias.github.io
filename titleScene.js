@@ -23,7 +23,7 @@ class titleScene extends Phaser.Scene{
 		this.background.setOrigin(0,0);
 		
 		
-		var introMusic = this.sound.add('intro-music');
+		introMusic = this.sound.add('intro-music');
 		introMusic.loop = true;
 		introMusic.play();
 		
