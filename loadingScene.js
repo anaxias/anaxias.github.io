@@ -208,12 +208,12 @@ class loadingScene extends Phaser.Scene{
 	}
 	
 	channelSubmit(message, channel){
-		console.log("overlap!!!! channel: "+channel+", message: "+message);
-		if((message.key == "general" && channel == "general")
-		|| (message.key == "art" && channel == "art") 
-		|| (message.key == "music" && channel == "music") 
-		|| (message.key == "prog" && channel == "prog") 
-		|| (message.key == "memes" && channel == "memes")){
+		console.log("overlap!!!! channel: "+channel+", message: "+message.name+", "+message.texture.key);
+		if((message.texture.key == "test-msg3" && channel == "general")
+		|| (message.texture.key == "test-msg4" && channel == "art") 
+		|| (message.texture.key == "test-msg2" && channel == "music") 
+		|| (message.texture.key == "test-msg5" && channel == "prog") 
+		|| (message.texture.key == "test-msg" && channel == "memes")){
 			success_sfx.play();
 			totalHP +=2;
 			//need to delete the object
@@ -233,6 +233,7 @@ class loadingScene extends Phaser.Scene{
 				loop: false
 			});
 		}
+		console.log(totalHP);
 	}
 	
 	tintMsg(message){
@@ -242,22 +243,22 @@ class loadingScene extends Phaser.Scene{
 	checkHPBar(){
 		
 		if(totalHP >= 81){
-			HP100.setDepth(1);
+			HP100.setDepth(depthCounter++);
 		}
 		else if(totalHP >= 61 && totalHP <= 80){
-			HP80.setDepth(1);
+			HP80.setDepth(depthCounter++);
 		}
 		else if(totalHP >= 41 && totalHP <= 60){
-			HP60.setDepth(1);
+			HP60.setDepth(depthCounter++);
 		}
 		else if(totalHP >= 21 && totalHP <= 40){
-			HP40.setDepth(1);
+			HP40.setDepth(depthCounter++);
 		}
 		else if(totalHP >= 1 && totalHP <= 20){
-			HP20.setDepth(1);
+			HP20.setDepth(depthCounter++);
 		}
 		else if(totalHP <= 0){
-			HP0.setDepth(1);
+			HP0.setDepth(depthCounter++);
 		}
 	}
 	

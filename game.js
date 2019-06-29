@@ -41,4 +41,5 @@ var HP40;
 var HP20;
 var HP0;
 var totalHP;
+var depthCounter = 0;
 var message_array = [];
