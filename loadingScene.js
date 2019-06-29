@@ -233,13 +233,13 @@ class loadingScene extends Phaser.Scene{
 			else{
 				message.tint = 0xFF0000;
 				totalHP--;
-				var quickTime = this.time.addEvent({
+			/*	var quickTime = this.time.addEvent({
 					delay: 2000,                // ms
 					callback: this.tintMsg(message),
 					//args: [],
 					callbackScope: this,
 					loop: false
-				});
+				});*/
 			}
 			console.log(totalHP);
 		}

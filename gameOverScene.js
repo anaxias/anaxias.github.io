@@ -16,7 +16,6 @@ class gameOverScene extends Phaser.Scene{
 		
 		this.background = this.add.image(0,0,"crash");
 		this.background.setOrigin(0,0);
-		var theOtherScene = this.scene.get('loadGame');
 
 
 		
@@ -36,7 +35,7 @@ class gameOverScene extends Phaser.Scene{
 		
 		var pointer = this.input.activePointer;
 		if (pointer.isDown) {
-			theOtherScene.scene.restart();
+			this.scene.restart('loadGame');
 			introMusic.stop();
 
 		}
