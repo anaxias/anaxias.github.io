@@ -40,13 +40,13 @@ class loadingScene extends Phaser.Scene{
 		HP100 = this.add.image(1060, 26, '100HP');
 		totalHP = 100;
 				
-	/*	var msg1 = this.physics.add.image(1050, 125, "test-msg").setVelocity(350);
+		var msg1 = this.physics.add.image(1050, 125, "test-msg").setVelocity(350);
 		message_array.push(msg1);
 		var msg2 = this.physics.add.image(1050, 225, "test-msg2").setVelocity(-250, 60);
 		message_array.push(msg2);
 		var msg3 = this.physics.add.image(1050, 275, "test-msg3").setVelocity(150);
 		message_array.push(msg3);
-		*/
+		
 		hamster = this.physics.add.image(400, 300, 'hamster').setVelocity(0, 0);
 		hamster.body.collideWorldBounds = true;
 		
@@ -57,9 +57,9 @@ class loadingScene extends Phaser.Scene{
 			message_array[i].body.bounce.set(1);
 			message_array[i].name = i;
 			this.physics.add.overlap(general, message_array[i], this.channelSubmit(message_array[i], "general"));
-			this.physics.add.overlap(art, message_array[i], this.channelSubmit(message_array[i], "art"));
-			this.physics.add.overlap(music, message_array[i], this.channelSubmit(message_array[i], "music"));
-			this.physics.add.overlap(prog, message_array[i], this.channelSubmit(message_array[i], "prog"));
+		//	this.physics.add.overlap(art, message_array[i], this.channelSubmit(message_array[i], "art"));
+		//	this.physics.add.overlap(music, message_array[i], this.channelSubmit(message_array[i], "music"));
+		//	this.physics.add.overlap(prog, message_array[i], this.channelSubmit(message_array[i], "prog"));
 			this.physics.add.overlap(memes, message_array[i], this.channelSubmit(message_array[i], "memes"));
 		}
 		
@@ -226,8 +226,8 @@ class loadingScene extends Phaser.Scene{
 				totalHP +=2;
 				//need to delete the object
 				//and somehow remove it from array
-			//	message_array.splice(parseInt(message.name), 1);
-			//	message.destroy();
+				message_array.splice(parseInt(message.name), 1);
+				message.destroy();
 				
 			}
 			else{
