@@ -216,6 +216,7 @@ class loadingScene extends Phaser.Scene{
 		if(message){
 			
 			console.log(message);
+			console.log(channel);
 			
 			if((message.texture.key == "test-msg3" && channel == "general")
 			|| (message.texture.key == "test-msg4" && channel == "art") 
