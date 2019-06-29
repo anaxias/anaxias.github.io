@@ -224,15 +224,17 @@ class loadingScene extends Phaser.Scene{
 				console.log("overlap is good! channel: "+channel+", message: "+message.name+", "+message.texture.key);
 				this.sound.play('success');
 				totalHP +=2;
-				//need to delete the object
-				//and somehow remove it from array
-				message_array.splice(parseInt(message.name), 1);
-				message.destroy();
+			
 				
 			}
 			else{
 				message.tint = 0xFF0000;
 				totalHP--;
+					//need to delete the object
+				//and somehow remove it from array
+				message_array.splice(parseInt(message.name), 1);
+				message.destroy();
+				
 			/*	var quickTime = this.time.addEvent({
 					delay: 2000,                // ms
 					callback: this.tintMsg(message),
