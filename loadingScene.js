@@ -73,7 +73,7 @@ class loadingScene extends Phaser.Scene{
 		error_sfx = this.sound.add('error');
 		
 		timer = this.time.addEvent({
-			delay: Phaser.Math.Between(1000,8000),                // ms
+			delay: Phaser.Math.Between(500,5000),                // ms
 			callback: this.addNewMessage,
 			//args: [],
 			callbackScope: this,
@@ -235,7 +235,7 @@ class loadingScene extends Phaser.Scene{
 			else{
 				//message.tint = 0xFF0000;
 				error_sfx.play();
-				totalHP--;
+				totalHP -= 5;
 					//need to delete the object
 				//and somehow remove it from array
 				
