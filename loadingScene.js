@@ -56,11 +56,11 @@ class loadingScene extends Phaser.Scene{
 			message_array[i].body.collideWorldBounds = true;
 			message_array[i].body.bounce.set(1);
 			message_array[i].name = i;
-			this.physics.add.overlap(general, message_array[i], this.channelSubmit(message_array[i], "general"));
-			this.physics.add.overlap(art, message_array[i], this.channelSubmit(message_array[i], "art"));
-			this.physics.add.overlap(music, message_array[i], this.channelSubmit(message_array[i], "music"));
-			this.physics.add.overlap(prog, message_array[i], this.channelSubmit(message_array[i], "prog"));
-			this.physics.add.overlap(memes, message_array[i], this.channelSubmit(message_array[i], "memes"));
+		//	this.physics.add.overlap(general, message_array[i], this.channelSubmit(message_array[i], "general"));
+		//	this.physics.add.overlap(art, message_array[i], this.channelSubmit(message_array[i], "art"));
+		//	this.physics.add.overlap(music, message_array[i], this.channelSubmit(message_array[i], "music"));
+		//	this.physics.add.overlap(prog, message_array[i], this.channelSubmit(message_array[i], "prog"));
+		//	this.physics.add.overlap(memes, message_array[i], this.channelSubmit(message_array[i], "memes"));
 		}
 		
 
