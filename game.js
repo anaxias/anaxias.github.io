@@ -29,6 +29,7 @@ var timer;
 var introMusic;
 var backgroundMusic;
 var success_sfx;
+var error_sfx;
 var general;
 var art;
 var music;
