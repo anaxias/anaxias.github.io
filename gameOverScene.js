@@ -35,8 +35,7 @@ class gameOverScene extends Phaser.Scene{
 		
 		var pointer = this.input.activePointer;
 		if (pointer.isDown) {
-			this.scene.start('loadGame');
-			introMusic.stop();
+			window.location.reload(); 
 
 		}
 	}
