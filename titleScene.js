@@ -13,6 +13,7 @@ class titleScene extends Phaser.Scene{
 		this.load.image("test-msg3", "assets/images/message-general.png");
 		this.load.image("test-msg4", "assets/images/message-art.png");
 		this.load.image("test-msg5", "assets/images/message-prog.png");
+		this.load.audio('intro-music', ['assets/audio/bgm-title-1.mp3']);
 	}
 	
 	create(){
@@ -21,6 +22,10 @@ class titleScene extends Phaser.Scene{
 		this.background = this.add.image(0,0,"startscreen");
 		this.background.setOrigin(0,0);
 		
+		
+		var introMusic = this.sound.add('intro-music');
+		introMusic.loop = true;
+		introMusic.play();
 		
 		
 		
