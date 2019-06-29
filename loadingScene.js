@@ -234,7 +234,7 @@ class loadingScene extends Phaser.Scene{
 			}
 			else{
 				//message.tint = 0xFF0000;
-				this.sound.play('error');
+				error_sfx.play('error');
 				totalHP--;
 					//need to delete the object
 				//and somehow remove it from array
