@@ -42,7 +42,7 @@ class loadingScene extends Phaser.Scene{
 		
 		timer = this.time.addEvent({
 			delay: 1500,                // ms
-			callback: function(){//console.log("It's been a milisecond!");},
+			callback: function(){/*console.log("It's been a milisecond!");*/},
 			//args: [],
 			callbackScope: this,
 			loop: true
