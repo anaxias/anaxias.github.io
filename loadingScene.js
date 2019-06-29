@@ -52,15 +52,15 @@ class loadingScene extends Phaser.Scene{
 		
 		
 		for (var i = 0; i < message_array.length; i++) {
-			message_array[i].body.setCircle(42);
+			message_array[i].body.setCircle(39);
 			message_array[i].body.collideWorldBounds = true;
 			message_array[i].body.bounce.set(1);
 			message_array[i].name = i;
-			this.physics.add.overlap(general, message_array[i], this.channelSubmit(message_array[i], "general"));
-			this.physics.add.overlap(art, message_array[i], this.channelSubmit(message_array[i], "art"));
-			this.physics.add.overlap(music, message_array[i], this.channelSubmit(message_array[i], "music"));
-			this.physics.add.overlap(prog, message_array[i], this.channelSubmit(message_array[i], "prog"));
-			this.physics.add.overlap(memes, message_array[i], this.channelSubmit(message_array[i], "memes"));
+		//	this.physics.add.overlap(general, message_array[i], this.channelSubmit(message_array[i], "general"));
+		//	this.physics.add.overlap(art, message_array[i], this.channelSubmit(message_array[i], "art"));
+		//	this.physics.add.overlap(music, message_array[i], this.channelSubmit(message_array[i], "music"));
+		//	this.physics.add.overlap(prog, message_array[i], this.channelSubmit(message_array[i], "prog"));
+		//	this.physics.add.overlap(memes, message_array[i], this.channelSubmit(message_array[i], "memes"));
 		}
 		
 
@@ -202,7 +202,7 @@ class loadingScene extends Phaser.Scene{
 				
 			}
 			
-			new_msg.body.setCircle(42);
+			new_msg.body.setCircle(39);
 			new_msg.body.collideWorldBounds = true;
 			new_msg.body.bounce.set(1);
 			new_msg.name = message_array.length;
@@ -211,10 +211,11 @@ class loadingScene extends Phaser.Scene{
 		//	console.log(new_msg);
 	}
 	
-	channelSubmit(channel, message){
+	channelSubmit(message, channel){
 		
 		if(message){
 			
+			console.log(message);
 			
 			if((message.texture.key == "test-msg3" && channel == "general")
 			|| (message.texture.key == "test-msg4" && channel == "art") 
@@ -228,10 +229,11 @@ class loadingScene extends Phaser.Scene{
 				
 			}
 			else{
-				message.tint = 0xFF0000;
+				//message.tint = 0xFF0000;
 				totalHP--;
 					//need to delete the object
 				//and somehow remove it from array
+				
 				message_array.splice(parseInt(message.name), 1);
 				message.destroy();
 				
