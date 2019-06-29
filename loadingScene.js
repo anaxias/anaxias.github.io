@@ -78,6 +78,9 @@ class loadingScene extends Phaser.Scene{
 	}
 	
 	update(){
+		
+		//bringToTop(child); we will use this to bring the correct HP bar to the top
+		
 		//this.moveMsg();
 		
 		//this updates the hamster movement
