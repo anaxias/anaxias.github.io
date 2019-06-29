@@ -7,7 +7,7 @@
 		physics:{
 			default: "arcade",
 			arcade:{
-				debug:true, //change to true to see trajectories and physics colliders
+				debug:false, //change to true to see trajectories and physics colliders
 				fps: 100
 			}
 		}
