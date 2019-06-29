@@ -206,6 +206,7 @@ class loadingScene extends Phaser.Scene{
 			
 			new_msg.body.setCircle(42);
 			new_msg.body.collideWorldBounds = true;
+			this.physics.collide(hamster, new_msg);
 			new_msg.body.bounce.set(1);
 			new_msg.name = message_array.length;
 			message_array.push(new_msg);
