@@ -79,8 +79,8 @@ class loadingScene extends Phaser.Scene{
 		});
 
 /////////////////////
-		console.log(message_array);
-		console.log(msg3);
+	//	console.log(message_array);
+	//	console.log(msg3);
 		
 	}
 	
@@ -213,12 +213,13 @@ class loadingScene extends Phaser.Scene{
 		
 		if(message){
 			
-			console.log("overlap!!!! channel: "+channel+", message: "+message.name+", "+message.texture.key);
+			
 			if((message.texture.key == "test-msg3" && channel == "general")
 			|| (message.texture.key == "test-msg4" && channel == "art") 
 			|| (message.texture.key == "test-msg2" && channel == "music") 
 			|| (message.texture.key == "test-msg5" && channel == "prog") 
 			|| (message.texture.key == "test-msg" && channel == "memes")){
+				console.log("overlap is good! channel: "+channel+", message: "+message.name+", "+message.texture.key);
 				this.sound.play('success');
 				totalHP +=2;
 				//need to delete the object
