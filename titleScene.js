@@ -13,6 +13,11 @@ class titleScene extends Phaser.Scene{
 		this.load.image("test-msg3", "assets/images/message-general.png");
 		this.load.image("test-msg4", "assets/images/message-art.png");
 		this.load.image("test-msg5", "assets/images/message-prog.png");
+		this.load.image("memes", "assets/images/memes_channel.png");
+		this.load.image("music", "assets/images/music_channel.png");
+		this.load.image("general", "assets/images/general_channel.png");
+		this.load.image("art", "assets/images/art_channel.png");
+		this.load.image("prog", "assets/images/prog_channel.png");
 		this.load.audio('intro-music', ['assets/audio/bgm-title-1.mp3']);
 	}
 	

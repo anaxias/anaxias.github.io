@@ -12,10 +12,27 @@ class loadingScene extends Phaser.Scene{
 		this.load.image('hamster', 'assets/images/placeholder-hamster.png');
 		this.load.audio('bgm', ['assets/audio/bgm-v1.mp3']);
 		this.load.audio('success', ['assets/audio/discord_msg_sound.mp3']);
+		
+		this.load.image('100HP', 'assets/images/100percentHP.png');
+		this.load.image('80HP', 'assets/images/80percentHP.png');
+		this.load.image('60HP', 'assets/images/60percentHP.png');
+		this.load.image('40HP', 'assets/images/40percentHP.png');
+		this.load.image('20HP', 'assets/images/20percentHP.png');
+		this.load.image('0HP', 'assets/images/noHP.png');
+		
 
 	}
 	
 	create(){
+		
+		//add channels
+		general = this.physics.add.image(1050, 125, "general");
+		art = this.physics.add.image(1050, 125, "art");
+		music = this.physics.add.image(1050, 125, "music");
+		prog = this.physics.add.image(1050, 125, "prog");
+		memes = this.physics.add.image(1050, 125, "memes");
+		
+		HP = this.add.image(0,0, '100HP');
 				
 		var msg1 = this.physics.add.image(1050, 125, "test-msg").setVelocity(350);
 		message_array.push(msg1);
