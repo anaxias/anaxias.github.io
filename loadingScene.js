@@ -181,7 +181,7 @@ class loadingScene extends Phaser.Scene{
 			
 			var random_msg_type = Phaser.Math.Between(1, 5);
 			var random_velocity = Phaser.Math.Between(-150, -350);
-			var random_velocity_angle = Phaser.Math.Between(0, 90);
+			var random_velocity_angle = Phaser.Math.Between(0, 180);
 			
 			if(random_msg_type == 1){ // general
 				var new_msg = this.physics.add.image(1050, start_loc, "test-msg3").setVelocity(random_velocity, random_velocity_angle);
