@@ -40,7 +40,7 @@ class loadingScene extends Phaser.Scene{
 		backgroundMusic.play();
 		
 		timer = this.time.addEvent({
-			delay: 1500,                // ms
+			delay: 500,                // ms
 			callback: function(){/*console.log("It's been a milisecond!");*/},
 			//args: [],
 			callbackScope: this,
