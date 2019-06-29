@@ -11,8 +11,8 @@ class loadingScene extends Phaser.Scene{
 		this.background.setOrigin(0,0);
 		this.load.image('hamster', 'assets/images/placeholder-hamster.png');
 		this.load.audio('bgm', ['assets/audio/bgm-1v1-full.mp3']);
-		this.load.audio('success', ['assets/audio/discord_msg_sound.mp3']);
-		this.load.audio('error', ['assets/audio/error_sound.mp3']);
+		this.load.audio('success', 'assets/audio/discord_msg_sound.mp3');
+		this.load.audio('error', 'assets/audio/error_sound.mp3');
 		
 		this.load.image('100HP', 'assets/images/100percentHP.png');
 		this.load.image('80HP', 'assets/images/80percentHP.png');
