@@ -26,13 +26,13 @@ class loadingScene extends Phaser.Scene{
 	create(){
 		
 		//add channels
-		general = this.physics.add.image(1050, 125, "general");
-		art = this.physics.add.image(1050, 125, "art");
-		music = this.physics.add.image(1050, 125, "music");
-		prog = this.physics.add.image(1050, 125, "prog");
-		memes = this.physics.add.image(1050, 125, "memes");
+		general = this.physics.add.image(10, 85, "general");
+		art = this.physics.add.image(10, 170, "art");
+		music = this.physics.add.image(10, 260, "music");
+		prog = this.physics.add.image(10, 350, "prog");
+		memes = this.physics.add.image(10, 430, "memes");
 		
-		HP = this.add.image(0,0, '100HP');
+	//	HP = this.add.image(910, 10, '100HP');
 				
 		var msg1 = this.physics.add.image(1050, 125, "test-msg").setVelocity(350);
 		message_array.push(msg1);
