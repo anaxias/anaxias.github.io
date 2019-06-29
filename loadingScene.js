@@ -41,8 +41,8 @@ class loadingScene extends Phaser.Scene{
 		backgroundMusic.play();
 		
 		timer = this.time.addEvent({
-			delay: 500,                // ms
-			callback: function(){console.log("It's been a milisecond!");},
+			delay: 1500,                // ms
+			callback: function(){//console.log("It's been a milisecond!");},
 			//args: [],
 			callbackScope: this,
 			loop: true
@@ -71,7 +71,7 @@ class loadingScene extends Phaser.Scene{
 		
 		//this will generate a new message of a random type from a random user
 		if((Phaser.Math.FloorTo(timer.getElapsedSeconds()*100))%15 == 0){
-			console.log("Lets make a new spawn!");
+		//	console.log("Lets make a new spawn!");
 			var random_user = Phaser.Math.Between(1, 4);
 			
 			if(random_user == 1){
