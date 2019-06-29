@@ -111,6 +111,11 @@ class loadingScene extends Phaser.Scene{
 		//this updates the collisions
 		for (var i = 0; i < message_array.length; i++) {
 			this.physics.collide(hamster, message_array[i]);
+			this.physics.add.overlap(general, message_array[i], this.channelSubmit(message_array[i], "general"));
+			this.physics.add.overlap(art, message_array[i], this.channelSubmit(message_array[i], "art"));
+			this.physics.add.overlap(music, message_array[i], this.channelSubmit(message_array[i], "music"));
+			this.physics.add.overlap(prog, message_array[i], this.channelSubmit(message_array[i], "prog"));
+			this.physics.add.overlap(memes, message_array[i], this.channelSubmit(message_array[i], "memes"));
 		}
 		
 		this.checkHPBar();
@@ -201,11 +206,7 @@ class loadingScene extends Phaser.Scene{
 			new_msg.body.bounce.set(1);
 			new_msg.name = message_array.length;
 			message_array.push(new_msg);
-			this.physics.add.overlap(general, new_msg, this.channelSubmit(new_msg, "general"));
-			this.physics.add.overlap(art, new_msg, this.channelSubmit(new_msg, "art"));
-			this.physics.add.overlap(music,new_msg, this.channelSubmit(new_msg, "music"));
-			this.physics.add.overlap(prog, new_msg, this.channelSubmit(new_msg, "prog"));
-			this.physics.add.overlap(memes,new_msg, this.channelSubmit(new_msg, "memes"));
+			
 		//	console.log(new_msg);
 	}
 	
