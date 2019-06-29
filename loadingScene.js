@@ -211,7 +211,7 @@ class loadingScene extends Phaser.Scene{
 		//	console.log(new_msg);
 	}
 	
-	channelSubmit(message, channel){
+	channelSubmit(channel, message){
 		
 		if(message){
 			
