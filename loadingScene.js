@@ -32,21 +32,21 @@ class loadingScene extends Phaser.Scene{
 		prog = this.physics.add.image(90, 382, "prog");
 		memes = this.physics.add.image(90, 462, "memes");
 		
-		HP0 = this.add.image(1059, 27, '0HP');
-		HP20 = this.add.image(1059, 27, '20HP');
-		HP40 = this.add.image(1059, 27, '40HP');
-		HP60 = this.add.image(1059, 27, '60HP');
-		HP80 = this.add.image(1059, 27, '80HP');
-		HP100 = this.add.image(1059, 27, '100HP');
+		HP0 = this.add.image(1060, 26, '0HP');
+		HP20 = this.add.image(1060, 26, '20HP');
+		HP40 = this.add.image(1060, 26, '40HP');
+		HP60 = this.add.image(1060, 26, '60HP');
+		HP80 = this.add.image(1060, 26, '80HP');
+		HP100 = this.add.image(1060, 26, '100HP');
 		totalHP = 100;
 				
-		var msg1 = this.physics.add.image(1050, 125, "test-msg").setVelocity(350);
+	/*	var msg1 = this.physics.add.image(1050, 125, "test-msg").setVelocity(350);
 		message_array.push(msg1);
 		var msg2 = this.physics.add.image(1050, 225, "test-msg2").setVelocity(-250, 60);
 		message_array.push(msg2);
 		var msg3 = this.physics.add.image(1050, 275, "test-msg3").setVelocity(150);
 		message_array.push(msg3);
-		
+		*/
 		hamster = this.physics.add.image(400, 300, 'hamster').setVelocity(0, 0);
 		hamster.body.collideWorldBounds = true;
 		
