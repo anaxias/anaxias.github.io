@@ -112,6 +112,8 @@ class loadingScene extends Phaser.Scene{
 			this.physics.collide(hamster, message_array[i]);
 		}
 		
+		this.checkHPBar();
+		
 		if(totalHP <= 0){
 			this.scene.start("endGame");
 		}
@@ -220,11 +222,37 @@ class loadingScene extends Phaser.Scene{
 			totalHP--;
 			var quickTime = this.time.addEvent({
 				delay: 2000                // ms
-				callback: function(){message.tint(0xFFFFFF);},
+				callback: this.tintMsg(message),
 				//args: [],
 				callbackScope: this,
 				loop: false
 			});
+		}
+	}
+	
+	tintMsg(message){
+		message.tint(0xFFFFFF);
+	}
+	
+	checkHPBar(){
+		
+		if(totalHP >= 81){
+			HP100.setDepth(1);
+		}
+		else if(totalHP >= 61 && totalHP <= 80){
+			HP80.setDepth(1);
+		}
+		else if(totalHP >= 41 && totalHP <= 60){
+			HP60.setDepth(1);
+		}
+		else if(totalHP >= 21 && totalHP <= 40){
+			HP40.setDepth(1);
+		}
+		else if(totalHP >= 1 && totalHP <= 20){
+			HP20.setDepth(1);
+		}
+		else if(totalHP <= 0){
+			HP0.setDepth(1);
 		}
 	}
 	
