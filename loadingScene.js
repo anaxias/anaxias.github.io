@@ -11,6 +11,7 @@ class loadingScene extends Phaser.Scene{
 		this.background.setOrigin(0,0);
 		this.load.image('hamster', 'assets/images/placeholder-hamster.png');
 		this.load.audio('bgm', ['assets/audio/bgm-v1.mp3']);
+		this.load.audio('success', ['assets/audio/discord_msg_sound.mp3']);
 
 	}
 	
@@ -36,12 +37,13 @@ class loadingScene extends Phaser.Scene{
 
 		
 		backgroundMusic = this.sound.add('bgm');
+		success_sfx = this.sound.add('success');
 		backgroundMusic.loop = true;
 		backgroundMusic.play();
 		
 		timer = this.time.addEvent({
 			delay: Phaser.Math.Between(1000,8000),                // ms
-			callback: function(){/*console.log("It's been a milisecond!");*/},
+			callback: this.addNewMessage,
 			//args: [],
 			callbackScope: this,
 			loop: true
@@ -66,12 +68,50 @@ class loadingScene extends Phaser.Scene{
 		velocityFromRotation(hamster.rotation, SPEED, hamster.body.velocity);
 		hamster.body.debugBodyColor = (hamster.body.angularVelocity === 0) ? 0xff0000 : 0xffff00;
 				
-				console.log((Phaser.Math.FloorTo(timer.getElapsedSeconds()*100))%17);
+
+		// this.physics.collide(msg1, msg2);
+	//	this.physics.collide(msg1, msg3);
+		//this.physics.collide(msg2, msg3);
+
+		//this updates the collisions
+		for (var i = 0; i < message_array.length; i++) {
+			this.physics.collide(hamster, message_array[i]);
+		}
 		
-		//this will generate a new message of a random type from a random user
-		if((Phaser.Math.FloorTo(timer.getElapsedSeconds()*100))%17 == 0){
-		//	console.log("Lets make a new spawn!");
-			var random_user = Phaser.Math.Between(1, 4);
+		
+		
+	}
+	
+	getPointerLocX(){
+		var pointer = this.input.activePointer;
+		 return pointer.x;
+		
+	}
+	
+	getPointerLocY(){
+		var pointer = this.input.activePointer;
+		 return pointer.y;
+		
+	}
+
+	
+	//referenced from https://codepen.io/samme/pen/JBwWLN?editors=0010
+	pointerMove(pointer) {  
+		  var angleToPointer = Phaser.Math.Angle.BetweenPoints(hamster, pointer);
+		  var angleDelta = angleToPointer - hamster.rotation;
+		  
+		  angleDelta = atan2(sin(angleDelta), cos(angleDelta));
+		  
+		  if (Phaser.Math.Within(angleDelta, 0, TOLERANCE)) {
+			hamster.rotation = angleToPointer;
+			hamster.setAngularVelocity(0);
+		  } else {
+			hamster.setAngularVelocity(Math.sign(angleDelta));
+		  }
+	}
+	
+	addNewMessage(){
+		var random_user = Phaser.Math.Between(1, 4);
 			
 			if(random_user == 1){
 				var start_loc = 125;	
@@ -127,49 +167,6 @@ class loadingScene extends Phaser.Scene{
 				new_msg.body.bounce.set(1);
 				message_array.push(new_msg);
 			}
-			
-		}
-		
-		
-		
-		// this.physics.collide(msg1, msg2);
-	//	this.physics.collide(msg1, msg3);
-		//this.physics.collide(msg2, msg3);
-
-		//this updates the collisions
-		for (var i = 0; i < message_array.length; i++) {
-			this.physics.collide(hamster, message_array[i]);
-		}
-		
-		
-		
 	}
-	
-	getPointerLocX(){
-		var pointer = this.input.activePointer;
-		 return pointer.x;
-		
-	}
-	
-	getPointerLocY(){
-		var pointer = this.input.activePointer;
-		 return pointer.y;
-		
-	}
-	
-	//referenced from https://codepen.io/samme/pen/JBwWLN?editors=0010
-	pointerMove(pointer) {  
-		  var angleToPointer = Phaser.Math.Angle.BetweenPoints(hamster, pointer);
-		  var angleDelta = angleToPointer - hamster.rotation;
-		  
-		  angleDelta = atan2(sin(angleDelta), cos(angleDelta));
-		  
-		  if (Phaser.Math.Within(angleDelta, 0, TOLERANCE)) {
-			hamster.rotation = angleToPointer;
-			hamster.setAngularVelocity(0);
-		  } else {
-			hamster.setAngularVelocity(Math.sign(angleDelta));
-		  }
-}
 	
 }
