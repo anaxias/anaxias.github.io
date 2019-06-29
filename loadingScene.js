@@ -32,12 +32,12 @@ class loadingScene extends Phaser.Scene{
 		prog = this.physics.add.image(90, 382, "prog");
 		memes = this.physics.add.image(90, 462, "memes");
 		
-		HP0 = this.add.image(1055, 29, '0HP');
-		HP20 = this.add.image(1055, 29, '20HP');
-		HP40 = this.add.image(1055, 29, '40HP');
-		HP60 = this.add.image(1055, 29, '60HP');
-		HP80 = this.add.image(1055, 29, '80HP');
-		HP100 = this.add.image(1055, 29, '100HP');
+		HP0 = this.add.image(1059, 27, '0HP');
+		HP20 = this.add.image(1059, 27, '20HP');
+		HP40 = this.add.image(1059, 27, '40HP');
+		HP60 = this.add.image(1059, 27, '60HP');
+		HP80 = this.add.image(1059, 27, '80HP');
+		HP100 = this.add.image(1059, 27, '100HP');
 		totalHP = 100;
 				
 		var msg1 = this.physics.add.image(1050, 125, "test-msg").setVelocity(350);
