@@ -26,18 +26,18 @@ class loadingScene extends Phaser.Scene{
 	create(){
 		
 		//add channels
-		general = this.physics.add.image(60, 125, "general");
-		art = this.physics.add.image(60, 210, "art");
-		music = this.physics.add.image(60, 300, "music");
-		prog = this.physics.add.image(60, 390, "prog");
-		memes = this.physics.add.image(60, 470, "memes");
+		general = this.physics.add.image(90, 118, "general");
+		art = this.physics.add.image(90, 202, "art");
+		music = this.physics.add.image(90, 292, "music");
+		prog = this.physics.add.image(90, 382, "prog");
+		memes = this.physics.add.image(90, 462, "memes");
 		
-		HP0 = this.add.image(910, 10, '0HP');
-		HP20 = this.add.image(910, 10, '20HP');
-		HP40 = this.add.image(910, 10, '40HP');
-		HP60 = this.add.image(910, 10, '60HP');
-		HP80 = this.add.image(910, 10, '80HP');
-		HP100 = this.add.image(910, 10, '100HP');
+		HP0 = this.add.image(1060, 29, '0HP');
+		HP20 = this.add.image(1060, 29, '20HP');
+		HP40 = this.add.image(1060, 29, '40HP');
+		HP60 = this.add.image(1060, 29, '60HP');
+		HP80 = this.add.image(1060, 29, '80HP');
+		HP100 = this.add.image(1060, 29, '100HP');
 		totalHP = 100;
 				
 		var msg1 = this.physics.add.image(1050, 125, "test-msg").setVelocity(350);
@@ -218,7 +218,7 @@ class loadingScene extends Phaser.Scene{
 			//and somehow remove it from array
 		}
 		else{
-			message.tint(0xFF0000);
+			message.tint = 0xFF0000;
 			totalHP--;
 			var quickTime = this.time.addEvent({
 				delay: 2000,                // ms
@@ -231,7 +231,7 @@ class loadingScene extends Phaser.Scene{
 	}
 	
 	tintMsg(message){
-		message.tint(0xFFFFFF);
+		message.tint = 0xFFFFFF;
 	}
 	
 	checkHPBar(){
