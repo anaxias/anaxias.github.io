@@ -6,6 +6,7 @@
 	<script>google.charts.load('current', {'packages':['line']});</script>
 	</head>
 	<body>
+	<div id='avg'></div>
 	<div id='chart'></div>
 <script>
 console.log("begin");
@@ -58,6 +59,17 @@ var processResponse = function(res) {
 
 var graphHeartRate = function(timeSeries) {
 	console.log(timeSeries);
+	
+	var testtotal = 0;
+	
+	for(var secs in timeSeries){
+	
+		testtotal += timeSeries[secs][1];
+		
+	}
+	
+	document.getElementById('avg').innerHtml = "<b style='font-size:60px'>"+testtotal/timeSeries.length+"</b>";
+	
 	var data = new google.visualization.DataTable();
 	data.addColumn('timeofday', 'Time of Day');
 	data.addColumn('number', 'Heart Rate');
