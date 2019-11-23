@@ -90,14 +90,16 @@ console.log(date.getHours()+" "+date.getMinutes());
 
 var currhour = date.getHours();
 var currmin = date.getMinutes();
-var pastmin = date.getMinutes()-5;
+var pastmin = date.getMinutes()-2;
 
 switch(currmin){
-	case 0: pastmin = "55"; break;
-	case 1: pastmin = "56"; break;
-	case 2: pastmin = "57"; break;
-	case 3: pastmin = "58"; break;
-	case 5: pastmin = "59"; break;
+	case 0: pastmin = "58"; break;
+	//case 0: pastmin = "55"; break;
+	case 1: pastmin = "59"; break;
+	//case 1: pastmin = "56"; break;
+	//case 2: pastmin = "57"; break;
+	//case 3: pastmin = "58"; break;
+	//case 4: pastmin = "59"; break;
 	default:
 		break;
 }
