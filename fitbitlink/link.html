@@ -72,19 +72,11 @@ var graphHeartRate = function(timeSeries) {
 	chart.draw(data, options);
 }
 
-fetch(
-//'GET https://api.fitbit.com/1/user/-/activities/heart/date/today/1d/1sec/time/00:00/00:01.json',
-//'GET https://api.fitbit.com/1/user/-/activities/heart/date/today/1m.json',
-'GET https://api.fitbit.com/1/user/-/activities/heart/date/2019-11-21/1d/1sec/time/09:00/16:00.json',
-//'https://api.fitbit.com/1/user/-/activities/heart.json',
-{
-headers: new Headers({
-'Authorization': 'Bearer ' + fitbitAccessToken
-}),
-mode: 'cors',
-method: 'GET'
-}
-).then(processResponse)
+var requesttest = new Request( 'https://api.fitbit.com/1/user/-/activities/heart/date/2019-11-21/1d/1sec/time/09:00/16:00.json',{method: 'GET', headers: new Headers({'Authorization': 'Bearer ' + fitbitAccessToken
+}), mode: 'cors'});
+
+fetch(requesttest)
+.then(processResponse)
 .then(processHeartRate)
 .then(graphHeartRate)
 .catch(function(error) {
