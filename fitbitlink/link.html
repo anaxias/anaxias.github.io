@@ -87,7 +87,7 @@ var graphHeartRate = function(timeSeries) {
 
 var date = new Date();
 console.log(date.getHours()+" "+date.getMinutes());
-var apistr = 'https://api.fitbit.com/1/user/-/activities/heart/date/today/1d/1sec/time/'+date.getHours()+':'+(date.getMinutes()-5)+'/'+date.getHours()+':'+date.getMinutes()+'.json';
+var apistr = 'https://api.fitbit.com/1/user/-/activities/heart/date/today/1d/1sec/time/'+date.getHours()+':'+(date.getMinutes()-2)+'/'+date.getHours()+':'+date.getMinutes()+'.json';
 console.log(apistr);
 
 var requesttest = new Request(apistr,{method: 'GET', headers: new Headers({'Authorization': 'Bearer ' + fitbitAccessToken
